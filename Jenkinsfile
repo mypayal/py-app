@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Salmankhan7798/python-app.git'
+                git branch: 'main', url: 'https://github.com/mypayal/py-app.git'
             }
         }
 
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image and tag it appropriately
-                    sh 'docker build -t salmankhan7798/twimbit .'
+                    sh 'docker build -t payalshahare/twimbit .'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
 		stage('Push Image') {
 
 			steps {
-				sh 'docker push salmankhan7798/twimbit:latest'
+				sh 'docker push payalshahare/twimbit:latest'
 			}
 		}
 
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image and tag it appropriately
-                    sh 'docker run -d -p 80:80 salmankhan7798/twimbit'
+                    sh 'docker run -d -p 80:80 payalshahare/twimbit'
                 }
             }
         }
